@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@screen mobile {
+  .mobile\:w-200px {
+    width: 200px;
+  }
+}
+
+@screen tablet {
+  .mobile\:w-300px {
+    width: 300px;
+  }
+}
+
+@screen laptop {
+  .mobile\:w-400px {
+    width: 400px;
+  }
+}
+
+@screen desktop {
+  .mobile\:w-500px {
+    width: 500px;
+  }
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.login-container,
+.rooms-container,
+.chat-container,
+.new-chat-container {
+  width: 400px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container input,
+.new-chat-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container button,
+.new-chat-container button,
+.exit-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.exit-btn {
+  margin-top: 20px;
+}
