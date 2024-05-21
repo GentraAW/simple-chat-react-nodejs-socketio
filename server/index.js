@@ -11,7 +11,7 @@ const io = require("socket.io")(server, {
     methods: ["GET", "POST"],
   },
 });
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors({ origin: "*" }));
 

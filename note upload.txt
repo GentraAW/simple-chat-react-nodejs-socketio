@@ -1,11 +1,10 @@
 # Upload ke GitHub dan GitLab secara bersamaan
-# Tambahkan remote repository GitHub
-git remote add github https://github.com/GentraAW/simple-chat-react-nodejs-socketio.git
+git init
 
-# Tambahkan remote repository GitLab
+git remote add github https://github.com/GentraAW/simple-chat-react-nodejs-socketio.git
 git remote add gitlab https://gitlab.com/gentraaw/simple-chat-react-nodejs-socketio.git
 
-
+------------------------------------------------------------------------
 git add .
 git commit -m ""
 
