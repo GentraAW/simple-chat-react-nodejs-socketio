@@ -27,7 +27,7 @@ function App() {
   const handleExit = () => {
     socket.emit("exituser", username);
     setExited(true);
-    window.location.reload();
+    window.close();
   };
 
   useEffect(() => {
@@ -59,11 +59,11 @@ function App() {
             setMessages((prevMessages) => [...prevMessages, data]);
           }
 
-          // if (data.to === username) {
-          //   if (data.to === username) {
-          //     alert(`New message from "${data.from}"`);
-          //   }
-          // }
+          if (data.to === username) {
+            if (data.to === username) {
+              alert(`New message received from ${data.from}`);
+            }
+          }
         }
       });
 
@@ -97,12 +97,6 @@ function App() {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       sendMessage();
-    }
-  };
-
-  const handleKeyPressChat = (e) => {
-    if (e.key === "Enter") {
-      startNewChat();
     }
   };
 
@@ -144,7 +138,7 @@ function App() {
 
   return (
     <div className="flex min-h-screen bg-gradient-to-r from-slate-50 to-slate-200">
-      <div className="flex items-center justify-center m-10 max-h-[52rem] shadow-xl rounded-xl custom-gradient-bg">
+      <div className="flex items-center justify-center w-full m-10 shadow-xl bg-slate-50 rounded-xl">
         <div className="flex w-full">
           <div className="w-3/10">
             <ChatRoomList
@@ -154,7 +148,6 @@ function App() {
               newChatUser={newChatUser}
               setNewChatUser={setNewChatUser}
               startNewChat={startNewChat}
-              handleKeyPressChat={handleKeyPressChat}
             />
           </div>
           <div className="w-7/10">

@@ -10,39 +10,46 @@ const ChatWindow = ({
   handleKeyPress,
 }) => {
   return (
-    <div className="chat-container w-96 border border-gray-300 rounded overflow-hidden">
-      <div className="chat-header bg-blue-500 text-white p-2 flex justify-between items-center">
-        <div>Chat with: {currentRoom || "No one"}</div>
-        <button
-          onClick={handleExit}
-          className="py-1 px-4 rounded bg-red-500 text-white"
-        >
-          Exit
-        </button>
-      </div>
-      <div className="chat-messages max-h-48 overflow-y-auto p-4">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${message.from === "Me" ? "my-message" : ""}`}
-          >
-            <span className="username font-bold mr-2">{message.from}:</span>
-            {message.text}
+    <div className="overflow-hidden h-[53rem] mobile:w-[22rem] tablet:w-[42rem] laptop:w-[85rem] rounded-tr-xl rounded-br-xl flex flex-col justify-between">
+      <div>
+        <div className="flex items-center justify-between p-2 text-white custom-gradient mobile:text-xs tablet:text-[15px]">
+          <div>
+            Chat with : <strong>{currentRoom || "??"}</strong>
           </div>
-        ))}
+          <button
+            onClick={handleExit}
+            className="px-4 py-1 text-white bg-transparent rounded shadow-xl hover:bg-red-500"
+          >
+            X
+          </button>
+        </div>
+        <div className="p-4 overflow-y-auto max-h-[45.8rem]">
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={`py-2 px-3 rounded-md mb-2 w-fit bg-white ${
+                message.from === "Me" ? "p-2 rounded-md mb-2 bg-blue-300" : ""
+              }`}
+            >
+              <span className="mr-2 font-bold username">{message.from}:</span>
+              {message.text}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="chat-input flex items-center p-2 bg-gray-200">
+
+      <div className="flex items-center p-3 bg-white mobile:text-xs tablet:text-[15px]">
         <input
           type="text"
           placeholder="Ketik pesan..."
           value={messageInput}
           onChange={(e) => setMessageInput(e.target.value)}
-          onKeyPress={handleKeyPress}
-          className="flex-1 py-1 px-2 rounded border border-gray-300"
+          onKeyDown={handleKeyPress}
+          className="flex-1 px-2 py-1 font-light border border-gray-300 rounded-md hover:border-blue-500 focus:ring-black focus:outline-none"
         />
         <button
           onClick={sendMessage}
-          className="ml-2 py-1 px-4 rounded bg-blue-500 text-white"
+          className="px-4 py-1 ml-2 text-white rounded-md custom-gradient"
         >
           Kirim
         </button>
